@@ -1,0 +1,3 @@
+C:\Repos\periodic_table-webapp\Domain\bin\Debug\net6.0\publish\Domain.dll
+C:\Repos\periodic_table-webapp\Domain\bin\Debug\net6.0\publish\Domain.deps.json
+C:\Repos\periodic_table-webapp\Domain\bin\Debug\net6.0\publish\Domain.pdb

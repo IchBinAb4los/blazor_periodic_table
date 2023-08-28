@@ -1,0 +1,96 @@
+﻿@using Domain;
+@using MudBlazor
+
+<div style="@Style; background-color:var(@(DataModel.FamilyDataModel.CssColor)); display:grid; grid-template-columns: 4fr 1fr; padding:0.3em; border: 1px solid #000; cursor:@(IsSelected ? "default" : "pointer"); filter: brightness(@($"{(DataModel.FamilyDataModel.Highlighted ? 100 : 50)}%"))" @onclick="OnClick">
+    @if (IsSelected)
+    {
+        <div style="display:grid; grid-template-rows:1fr 1fr 2fr 1fr 1fr; width:100%; min-width:100%; max-width:100%; height:100%; min-height:100%; max-height:100%;">
+            <MudTooltip Text="atomic mass" Placement="Placement.Left" Arrow="true">
+                <div style="font-size:0.8em; @(DataModel.Element.HasRadiactiveMass && DataModel.MassHighlighted ? "color: #f00; font-weight:bold;" : "")">@(DataModel.Element.HasRadiactiveMass ? $"({DataModel.Element.AtomicMass})" : DataModel.Element.AtomicMass)</div>
+            </MudTooltip>
+            <div style="font-size:0.6em; display:flex; flex-flow:row; display:flex; align-items:center;">
+                <MudTooltip Text="ionization energy" Placement="Placement.Left" Arrow="true">
+                    <div>@DataModel.Element.IonizationEnergy</div>
+                </MudTooltip>
+                <MudTooltip Text="electronegativity" Placement="Placement.Right" Arrow="true">
+                    <div style="margin-left:1em;">@DataModel.Element.Electronegativity</div>
+                </MudTooltip>
+            </div>
+            <MudTooltip Text="symbol" Placement="Placement.Left" Arrow="true">
+                <div style="font-size:2.8em; line-height:2.5rem; padding:0.1em 0;">@DataModel.Element.Symbol</div>
+            </MudTooltip>
+            <MudTooltip Text="name" Placement="Placement.Left" Arrow="true">
+                <div style="font-size:0.9em;">@DataModel.Element.Name</div>
+            </MudTooltip>
+            <MudTooltip Text="electron configuration" Placement="Placement.Left" Arrow="true">
+                <div style="font-size:0.6em; white-space:nowrap;">
+                    @if (DataModel.Element.ElectronConfiguration.ElementSymbol is not null)
+                    {
+                        <span>@($"[{DataModel.Element.ElectronConfiguration.ElementSymbol}] ")</span>
+                    }
+                    @foreach (var subConfiguration in DataModel.Element.ElectronConfiguration.SubConfigurations)
+                    {
+                        <span>@subConfiguration.String</span>
+                        <sup style="margin-right:0.3em;">@subConfiguration.SupNumber</sup>
+                    }
+                </div>
+            </MudTooltip>
+        </div>
+        <div style="display:flex; flex-flow:column; align-items:flex-end;">
+            <MudTooltip Text="atomic number" Placement="Placement.Right" Arrow="true">
+                <div style="font-size:1.5em; line-height:1.5rem; margin-bottom:0.5rem;">@DataModel.Element.AtomicNumber</div>
+            </MudTooltip>
+            <MudTooltip Text="oxidation states" Placement="Placement.Right" Arrow="true">
+                <div style="display:flex; flex-flow:column; text-align:right; font-size:0.5em;">
+                    @foreach (var oxidationState in DataModel.Element.OxidationStates)
+                    {
+                        <div>@(oxidationState > 0 ? "+" : "")@oxidationState</div>
+                    }
+                </div>
+            </MudTooltip>
+        </div>
+    }
+    else
+    {
+        <div style="display:grid; grid-template-rows:1fr 1fr 2fr 1fr 1fr; width:100%; min-width:100%; max-width:100%; height:100%; min-height:100%; max-height:100%;">
+            <div style="font-size:0.8em; @(DataModel.Element.HasRadiactiveMass && DataModel.MassHighlighted ? "color: #f00; font-weight:bold;" : "")">@(DataModel.Element.HasRadiactiveMass ? $"({DataModel.Element.AtomicMass})" : DataModel.Element.AtomicMass)</div>
+            <div style="font-size:0.6em; display:flex; flex-flow:row; display:flex; align-items:center;">
+                <div>@DataModel.Element.IonizationEnergy</div>
+                <div style="margin-left:1em;">@DataModel.Element.Electronegativity</div>
+            </div>
+            <div style="font-size:2.2em; line-height:1.5rem; padding:0.1em 0;">@DataModel.Element.Symbol</div>
+            <div style="font-size:0.9em;">@DataModel.Element.Name</div>
+            <div style="font-size:0.6em; white-space:nowrap;">
+                @if (DataModel.Element.ElectronConfiguration.ElementSymbol is not null)
+                {
+                    <span>@($"[{DataModel.Element.ElectronConfiguration.ElementSymbol}] ")</span>
+                }
+                @foreach (var subConfiguration in DataModel.Element.ElectronConfiguration.SubConfigurations)
+                {
+                    <span>@subConfiguration.String</span>
+                    <sup style="margin-right:0.1em;">@subConfiguration.SupNumber</sup>
+                }
+            </div>
+        </div>
+        <div style="display:grid; grid-template-rows:1fr 3fr">
+            <div style="font-size:1.5em; line-height:1.5rem; text-align:right;">@DataModel.Element.AtomicNumber</div>
+            <div style="display:flex; flex-flow:column; text-align:right; font-size:0.5em;">
+                @for (int i = 0; i < (DataModel.Element.OxidationStates.Count > 4 ? 4 : DataModel.Element.OxidationStates.Count - 1); i++)
+                {
+                    <div>@(DataModel.Element.OxidationStates[i] > 0 ? "+" : "")@DataModel.Element.OxidationStates[i]</div>
+                }
+                @if (DataModel.Element.OxidationStates.Count > 4)
+                {
+                    <div>...</div>
+                }
+            </div>
+        </div>
+    }
+</div>
+
+@code{
+    [Parameter, EditorRequired] public ElementDataModel DataModel { get; set; } = default!;
+    [Parameter] public EventCallback OnClick { get; set; } = default!;
+    [Parameter] public string Style { get; set; } = default!;
+    [Parameter] public bool IsSelected { get; set; } = default!;
+}

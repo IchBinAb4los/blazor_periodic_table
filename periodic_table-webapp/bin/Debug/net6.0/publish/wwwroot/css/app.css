@@ -1,0 +1,30 @@
+﻿:root {
+    --family-alkalimetals-color: #ffc591;
+    --family-alkalineearthmetals-color: #ffdf91;
+    --family-posttransitionmetals-color: #fff991;
+    --family-transitionmetals-color: #ecff91;
+    --family-lanthanoids-color: #d2ff91;
+    --family-actinoids-color: #b8ff91;
+    --family-metalloids-color: #92ff9f;
+    --family-nonmetals-color: #ab91ff;
+    --family-halogens-color: #f991ff;
+    --family-noblegases-color: #91dfff;
+    --block-s-color: #ffdf91;
+    --block-d-color: #91abff;
+    --block-p-color: #ffab91;
+    --block-f-color: #fff991;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    zoom: 90%;
+}
+
+html, body {
+    font-family: 'Times New Roman', Helvetica, Arial, sans-serif;
+}

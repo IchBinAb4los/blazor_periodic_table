@@ -1,0 +1,41 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = UI
+build_property.RootNamespace = UI
+build_property.ProjectDir = C:\periodic_table-webapp\periodic_table-webapp\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\periodic_table-webapp\periodic_table-webapp
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/periodic_table-webapp/periodic_table-webapp/ElementView.razor]
+build_metadata.AdditionalFiles.TargetPath = RWxlbWVudFZpZXcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/periodic_table-webapp/periodic_table-webapp/FooterView.razor]
+build_metadata.AdditionalFiles.TargetPath = Rm9vdGVyVmlldy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/periodic_table-webapp/periodic_table-webapp/HeaderView.razor]
+build_metadata.AdditionalFiles.TargetPath = SGVhZGVyVmlldy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/periodic_table-webapp/periodic_table-webapp/MainView.razor]
+build_metadata.AdditionalFiles.TargetPath = TWFpblZpZXcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/periodic_table-webapp/periodic_table-webapp/PeriodicTableView.razor]
+build_metadata.AdditionalFiles.TargetPath = UGVyaW9kaWNUYWJsZVZpZXcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/periodic_table-webapp/periodic_table-webapp/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "periodic_table-webapp\UI.csproj", "{817DBBD8-52EF-4413-9AE9-4EFBE41411F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{F4B6EC92-BAC3-43FA-ADD8-CEF444B29B4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{817DBBD8-52EF-4413-9AE9-4EFBE41411F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{817DBBD8-52EF-4413-9AE9-4EFBE41411F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{817DBBD8-52EF-4413-9AE9-4EFBE41411F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{817DBBD8-52EF-4413-9AE9-4EFBE41411F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4B6EC92-BAC3-43FA-ADD8-CEF444B29B4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4B6EC92-BAC3-43FA-ADD8-CEF444B29B4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4B6EC92-BAC3-43FA-ADD8-CEF444B29B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4B6EC92-BAC3-43FA-ADD8-CEF444B29B4F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8CD10DAC-A969-425A-8398-6CC09106D89E}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,44 @@
+﻿@using Domain;
+@using MudBlazor
+
+<div style="display:grid; grid-template-columns: repeat(18, 1fr); grid-template-rows: repeat(9, 1fr); ">
+    @foreach(var elementDataModel in ElementDataModels)
+    {
+        <ElementView DataModel="elementDataModel" Style="@($"grid-row:{elementDataModel.Row}; grid-column:{elementDataModel.Column}; aspect-ratio:1; font-size:1rem;")" OnClick="@(() => SelectedElementDataModel = elementDataModel)"/>
+    }
+    <div style="grid-row:1; grid-column-start:13; grid-column-end:18; display:flex; justify-content:center; align-items:center;">
+        <div style="width:70%;">
+            <MudAutocomplete T="ElementDataModel" SearchFunc="@Search" @bind-Value="SelectedElementDataModel" Variant="Variant.Outlined" Label="Element" ToStringFunc="@(x => x == null ? null : x.Element.Name)" />
+        </div>
+    </div>
+    <HeaderView OnFamilyChanged="HandleFamilyChanged" Style="grid-row-start:1; grid-row-end:4; grid-column-start:3; grid-column-end:13" ElementDataModels="ElementDataModels" SelectedElementDataModel="@SelectedElementDataModel"/>
+    <FooterView />
+</div>
+
+@code{
+    public List<ElementDataModel> ElementDataModels { get; set; } = new();
+    public ElementDataModel SelectedElementDataModel { get; set; } = default!;
+
+    protected override void OnInitialized()
+    {
+        foreach (var element in Element.All)
+        {
+            ElementDataModels.Add(new ElementDataModel(element, new(element.Family)));
+            ElementDataModels = ElementDataModels.OrderBy(x => x.Element.Name).ToList();
+        }
+        SelectedElementDataModel = ElementDataModels.First(x => x.Element == Element.Hydrogen);
+    }
+
+    public async Task HandleFamilyChanged()
+    {
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public Task<IEnumerable<ElementDataModel>> Search(string value) =>
+        string.IsNullOrEmpty(value)
+            ? Task.FromResult((IEnumerable<ElementDataModel>) ElementDataModels)
+            : Task.FromResult(ElementDataModels.Where(x => 
+                x.Element.Name.Contains(value, StringComparison.InvariantCultureIgnoreCase) ||
+                x.Element.Symbol.Contains(value, StringComparison.InvariantCultureIgnoreCase) ||
+                x.Element.AtomicNumber.ToString().Contains(value)));
+}
