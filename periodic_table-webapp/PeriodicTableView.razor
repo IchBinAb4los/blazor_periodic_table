@@ -34,7 +34,7 @@
         await InvokeAsync(StateHasChanged);
     }
 
-    public Task<IEnumerable<ElementDataModel>> Search(string value) =>
+    public Task<IEnumerable<ElementDataModel>> Search(string value, CancellationToken _) =>
         string.IsNullOrEmpty(value)
             ? Task.FromResult((IEnumerable<ElementDataModel>) ElementDataModels)
             : Task.FromResult(ElementDataModels.Where(x => 

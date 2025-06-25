@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LMQw3OkAOtDAweS3NMsBP8cG3HssAuY7Z25UPOc3eIA3lq/U461hwlw1ChHsFvFQIOjmx38CvJQRE9FqT/7qww==",
+  "dgSpecHash": "V4eAQ3fc9zc=",
   "success": true,
-  "projectFilePath": "C:\\periodic_table-webapp\\Domain\\Domain.csproj",
+  "projectFilePath": "E:\\blazor_periodic_table\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
